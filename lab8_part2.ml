@@ -107,7 +107,7 @@ module MakeStack (Element: SERIALIZE) : (STACK with type element = Element.t) =
 
     let pop_helper (s : stack) : (element * stack) =
       match s with 
-      | [] -> raise (exception)
+      | [] -> raise Empty
       | head :: tail -> head, tail
 
     let top (s : stack) : element =
