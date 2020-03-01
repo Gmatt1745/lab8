@@ -103,16 +103,20 @@ module MakeStack (Element: SERIALIZE) : (STACK with type element = Element.t) =
     let empty : stack = []
 
     let push (el : element) (s : stack) : stack =
-      failwith "push not implemented"
+      el :: s
 
     let pop_helper (s : stack) : (element * stack) =
-      failwith "pop_helper not implemented"
+      match s with 
+      | [] -> raise (exception)
+      | head :: tail -> head, tail
 
     let top (s : stack) : element =
       failwith "top not implemented"
 
     let pop (s : stack) : stack =
-      failwith "pop not implemented"
+      let two = pop_helper s in
+      match two with
+      | el, st -> st
 
     let map (f : element -> element) (s : stack) : stack =
       failwith "map not implemented"
